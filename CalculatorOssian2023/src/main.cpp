@@ -108,31 +108,36 @@ int main()
 			}
 
 			
-			for (int i = 0; i < (listOfNumbers.size()/2); i++)
+			for (int i = 0; i < (listOfNumbers.size()); i++)
 			{
-				switch (listOfExpressions[0])
+				if (listOfExpressions[0] == '+')
 				{
-				case '+':
 					result = std::stod(listOfNumbers[0]) + std::stod(listOfNumbers[1]);
 					listOfNumbers.erase(std::next(listOfNumbers.begin()));
 					listOfNumbers.erase(listOfNumbers.begin());
-					break;
-				case '-':
+					listOfExpressions.erase(listOfExpressions.begin());
+				}
+	
+				if (listOfExpressions[0] == '-')
+				{
 					result = std::stod(listOfNumbers[0]) - std::stod(listOfNumbers[1]);
 					listOfNumbers.erase(std::next(listOfNumbers.begin()));
 					listOfNumbers.erase(listOfNumbers.begin());
-					break;
-				case '/':
+					listOfExpressions.erase(listOfExpressions.begin());
+				}
+				if (listOfExpressions[0] == '/')
+				{
 					result = std::stod(listOfNumbers[0]) / std::stod(listOfNumbers[1]);
 					listOfNumbers.erase(std::next(listOfNumbers.begin()));
 					listOfNumbers.erase(listOfNumbers.begin());
-					break;
-				case '*':
+					listOfExpressions.erase(listOfExpressions.begin());
+				}
+				if (listOfExpressions[0] == '*')
+				{
 					result = std::stod(listOfNumbers[0]) * std::stod(listOfNumbers[1]);
 					listOfNumbers.erase(std::next(listOfNumbers.begin()));
 					listOfNumbers.erase(listOfNumbers.begin());
-					break;
-					
+					listOfExpressions.erase(listOfExpressions.begin());
 				}
 			}
 
